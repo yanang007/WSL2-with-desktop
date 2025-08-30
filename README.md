@@ -3,6 +3,12 @@ WSL2-with-desktop
 
 `WSL2-with-desktop` provides script-version of [tdcosta100/WSL2GUIWSLg-XWayland](https://gist.github.com/tdcosta100/e28636c216515ca88d1f2e7a2e188912).
 
+Prerequisites
+-------------
+- Windows 11
+- [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
+- Ubuntu 24.04 (Consider [this guide](https://gist.github.com/tdcosta100/385636cbae39fc8cd0937139e87b1c74) for other Ubuntu versions)
+- systemd enabled in WSL2 (check `/etc/wsl.conf` for `systemd=true`)
 
 Usage
 -----
@@ -72,3 +78,8 @@ Modify the Xwayland command options in the Xorg replacement script (STEP 7):
 # Find this line and customize as needed:
 command=("/usr/bin/Xwayland" ":${displayNumber}" "-geometry" "${WIDTH}x${HEIGHT}" "-fullscreen" "$@")
 ```
+
+Troubleshooting
+---------------
+### 1. Black Screen
+Try manually start `gnome-session` before starting `graphical.target`:
